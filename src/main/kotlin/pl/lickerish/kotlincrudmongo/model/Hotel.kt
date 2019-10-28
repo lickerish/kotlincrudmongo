@@ -9,12 +9,5 @@ data class Hotel(val name: String,
                  var address: Address,
                  var reviews: List<Review>) {
     @Id
-    var id: String = "";
-
-    init {
-        this.pricePerNight = pricePerNight
-        this.address = address
-        this.reviews
-    }
-
+    var id: String = ""
 }
