@@ -7,7 +7,4 @@ import org.springframework.data.mongodb.core.mapping.Document
 data class Hotel(val name: String,
                  var pricePerNight: Int,
                  var address: Address,
-                 var reviews: List<Review>) {
-    @Id
-    var id: String = ""
-}
+                 var reviews: List<Review>)
