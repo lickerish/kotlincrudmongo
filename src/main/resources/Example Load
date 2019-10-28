@@ -1,0 +1,21 @@
+// Example for POST:localhost:8080/hotels
+{
+  "name": "Marriot",
+  "pricePerNight": 90,
+  "address": {
+    "city": "Poznan",
+    "country": "Poland"
+  },
+  "reviews": [
+    {
+      "userName": "Kate",
+      "rating": 8,
+      "approved": false
+    },
+    {
+      "userName": "Lady Gaga",
+      "rating": 6,
+      "approved": true
+    }
+  ]
+}
