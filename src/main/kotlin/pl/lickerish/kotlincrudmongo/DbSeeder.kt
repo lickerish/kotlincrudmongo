@@ -10,14 +10,7 @@ import pl.lickerish.kotlincrudmongo.repositories.HotelRepository
 
 
 @Component
-class DbSeeder : CommandLineRunner {
-
-    var hotelRepository: HotelRepository
-
-    @Autowired
-    constructor(hotelRepository: HotelRepository) {
-        this.hotelRepository = hotelRepository
-    }
+class DbSeeder(@Autowired val hotelRepository: HotelRepository) : CommandLineRunner {
 
 
     override fun run(vararg args: String?) {
@@ -42,10 +35,10 @@ class DbSeeder : CommandLineRunner {
                 listOf(Review("Albert", 10, false),
                         Review("Eve", 9, true))
         )
-        this.hotelRepository.deleteAll();
-        this.hotelRepository.save(ibis);
-        this.hotelRepository.save(marriot);
-        this.hotelRepository.save(ibisBudget);
+        this.hotelRepository.deleteAll()
+        this.hotelRepository.save(ibis)
+        this.hotelRepository.save(marriot)
+        this.hotelRepository.save(ibisBudget)
     }
 
 }
