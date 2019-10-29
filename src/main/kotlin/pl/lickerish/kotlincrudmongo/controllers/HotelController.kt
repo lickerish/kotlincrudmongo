@@ -20,6 +20,16 @@ class HotelController(@Autowired val hotelRepository: HotelRepository) {
         return this.hotelRepository.findById(id)
     }
 
+    @GetMapping("/price/{maxPrice}")
+    fun getPricePerNight(@PathVariable("maxPrice") maxPrice: Int): List<Hotel> {
+        return this.hotelRepository.findByPricePerNightLessThan(maxPrice)
+    }
+
+    @GetMapping("/address/{city}")
+    fun getByCity(@PathVariable("city") city: String): List<Hotel> {
+        return this.hotelRepository.findByCity(city)
+    }
+
     @PostMapping
     fun insert(@RequestBody hotel: Hotel): Hotel {
         return this.hotelRepository.save(hotel)
