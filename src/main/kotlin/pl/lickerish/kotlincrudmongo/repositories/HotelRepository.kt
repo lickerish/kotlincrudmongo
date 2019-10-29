@@ -5,11 +5,12 @@ import org.springframework.data.mongodb.repository.Query
 import org.springframework.stereotype.Repository
 import pl.lickerish.kotlincrudmongo.model.Hotel
 
+
 @Repository
 interface HotelRepository : MongoRepository<Hotel, String> {
     fun findByPricePerNightLessThan(maxPrice: Int): List<Hotel>
 
-    @Query(value = "address.city:?0")
+    @Query("address.city:?0")
     fun findByCity(city: String): List<Hotel>
 
 }
