@@ -11,39 +11,25 @@ import java.util.*
 class HotelController(@Autowired val hotelRepository: HotelRepository) {
 
     @GetMapping
-    fun getAll(): List<Hotel> {
-        return this.hotelRepository.findAll()
-    }
+    fun getAll() = this.hotelRepository.findAll()
 
     @GetMapping("/{id}")
-    fun getById(@PathVariable id: String): Optional<Hotel> {
-        return this.hotelRepository.findById(id)
-    }
+    fun getById(@PathVariable id: String): Optional<Hotel> = this.hotelRepository.findById(id)
 
     @GetMapping("/price/{maxPrice}")
-    fun getPricePerNight(@PathVariable("maxPrice") maxPrice: Int): List<Hotel> {
-        return this.hotelRepository.findByPricePerNightLessThan(maxPrice)
-    }
+    fun getPricePerNight(@PathVariable("maxPrice") maxPrice: Int) = this.hotelRepository.findByPricePerNightLessThan(maxPrice)
 
     @GetMapping("/address/{city}")
-    fun getByCity(@PathVariable("city") city: String): List<Hotel> {
-        return this.hotelRepository.findByCity(city)
-    }
+    fun getByCity(@PathVariable("city") city: String) = this.hotelRepository.findByCity(city)
 
     @PostMapping
-    fun insert(@RequestBody hotel: Hotel): Hotel {
-        return this.hotelRepository.save(hotel)
-    }
+    fun insert(@RequestBody hotel: Hotel) = this.hotelRepository.save(hotel)
 
     @PutMapping
-    fun update(@RequestBody hotel: Hotel) {
-        this.hotelRepository.insert(hotel)
-    }
+    fun update(@RequestBody hotel: Hotel) = this.hotelRepository.insert(hotel)
 
     @DeleteMapping("/{id}")
-    fun delete(@PathVariable("id") id: String) {
-        this.hotelRepository.deleteById(id)
-    }
+    fun delete(@PathVariable("id") id: String) = this.hotelRepository.deleteById(id)
 
 
 }
