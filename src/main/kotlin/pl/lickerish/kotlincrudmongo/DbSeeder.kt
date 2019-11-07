@@ -35,10 +35,12 @@ class DbSeeder(@Autowired val hotelRepository: HotelRepository) : CommandLineRun
                 listOf(Review("Albert", 10, false),
                         Review("Eve", 9, true))
         )
-        this.hotelRepository.deleteAll()
+        this.cleanDB()
         this.hotelRepository.save(ibis)
         this.hotelRepository.save(marriot)
         this.hotelRepository.save(ibisBudget)
     }
+
+    fun cleanDB() = this.hotelRepository.deleteAll()
 
 }
